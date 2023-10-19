@@ -1,0 +1,26 @@
+{
+	"name": "g4/zf1-future-zend-db",
+	"description": "Zend Framework 1 library/Zend/Db package (fork)",
+	"keywords": [
+		"framework",
+		"zf1",
+		"zend",
+		"db"
+	],
+	"homepage": "http://framework.zend.com/",
+	"license": "BSD-3-Clause",
+	"require": {
+		"php": ">=7.3",
+		"g4/zf1-future-zend-exception": "self.version",
+		"g4/zf1-future-zend-loader": "self.version"
+	},
+	"autoload": {
+		"psr-0": {
+			"Zend_Db": "library/"
+		}
+	},
+	"suggest": {
+		"zf1/zend-registry": "Used in special situations or with special adapters",
+		"zf1/zend-wildfire": "Used in special situations or with special adapters"
+	}
+}
