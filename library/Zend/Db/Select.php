@@ -677,8 +677,8 @@ class Zend_Db_Select
     /**
      * Makes the query SELECT FOR UPDATE, optionally with NOWAIT or SKIP LOCKED options
      *
-     * @param mixed $flag Whether or not the SELECT is FOR UPDATE (default true),
-                          pass the flag FU_MODE_NOWAIT or FU_MODE_SKIP to make
+     * @param mixed $flag Whether or not the SELECT is FOR UPDATE (default true), 
+                          pass the flag FU_MODE_NOWAIT or FU_MODE_SKIP to make 
                           the FOR UPDATE either NOWAIT or SKIP LOCKED
      * @return $this This Zend_Db_Select object.
      */
@@ -833,7 +833,7 @@ class Zend_Db_Select
 
         // Schema from table name overrides schema argument
         if (!is_object($tableName) && false !== strpos($tableName, '.')) {
-            [$schema, $tableName] = explode('.', $tableName);
+            list($schema, $tableName) = explode('.', $tableName);
         }
 
         $lastFromCorrelationName = null;
@@ -1075,7 +1075,7 @@ class Zend_Db_Select
         if ($schema === null) {
             return null;
         }
-        return $this->_adapter->quoteIdentifier($schema, true) . 'Db';
+        return $this->_adapter->quoteIdentifier($schema, true) . '.';
     }
 
     /**
@@ -1119,7 +1119,7 @@ class Zend_Db_Select
 
         $columns = [];
         foreach ($this->_parts[self::COLUMNS] as $columnEntry) {
-            [$correlationName, $column, $alias] = $columnEntry;
+            list($correlationName, $column, $alias) = $columnEntry;
             if ($column instanceof Zend_Db_Expr) {
                 $columns[] = $this->_adapter->quoteColumnAs($column, $alias, true);
             } else {
@@ -1197,7 +1197,7 @@ class Zend_Db_Select
         if ($this->_parts[self::UNION]) {
             $parts = count($this->_parts[self::UNION]);
             foreach ($this->_parts[self::UNION] as $cnt => $union) {
-                [$target, $type] = $union;
+                list($target, $type) = $union;
                 if ($target instanceof Zend_Db_Select) {
                     $target = $target->assemble();
                 }
@@ -1275,7 +1275,7 @@ class Zend_Db_Select
                     if(is_numeric($term[0]) && (string) ((int) ($term[0])) == $term[0]) {
                         $order[] = (int)trim($term[0]) . ' ' . $term[1];
                     } else {
-                        $order[] = $this->_adapter->quoteIdentifier($term[0], true) . ' Select.php' . $term[1];
+                        $order[] = $this->_adapter->quoteIdentifier($term[0], true) . ' ' . $term[1];
                     }
                 } elseif (is_numeric($term) && (string) ((int) $term) == $term) {
                     $order[] = (int)trim($term);

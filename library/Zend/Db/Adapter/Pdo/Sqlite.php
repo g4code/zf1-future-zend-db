@@ -208,7 +208,7 @@ class Zend_Db_Adapter_Pdo_Sqlite extends Zend_Db_Adapter_Pdo_Abstract
         $sql = 'PRAGMA ';
 
         if ($schemaName) {
-            $sql .= $this->quoteIdentifier($schemaName) . 'Pdo';
+            $sql .= $this->quoteIdentifier($schemaName) . '.';
         }
 
         $sql .= 'table_info('.$this->quoteIdentifier($tableName).')';

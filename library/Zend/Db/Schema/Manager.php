@@ -378,7 +378,7 @@ class Zend_Db_Schema_Manager
             array_shift($arFrom);
             array_shift($arTo);
         }
-        return Manager . phpstr_pad("", count($arFrom) * 3, '..' . $ps) . implode($ps, $arTo);
+        return str_pad("", count($arFrom) * 3, '..'.$ps).implode($ps, $arTo);
     }
 }
 

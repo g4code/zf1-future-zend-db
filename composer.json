@@ -11,8 +11,8 @@
 	"license": "BSD-3-Clause",
 	"require": {
 		"php": ">=7.3",
-		"g4/zf1-future-zend-exception": "self.version",
-		"g4/zf1-future-zend-loader": "self.version"
+		"g4/zf1-future-zend-exception": "1.23.*",
+		"g4/zf1-future-zend-loader": "1.23.*"
 	},
 	"autoload": {
 		"psr-0": {

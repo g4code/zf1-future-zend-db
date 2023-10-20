@@ -915,7 +915,7 @@ abstract class Zend_Db_Table_Abstract
         if ($this->_sequence === true && $this->_db instanceof Zend_Db_Adapter_Pdo_Pgsql) {
             $this->_sequence = $this->_db->quoteIdentifier("{$this->_name}_{$pkIdentity}_seq");
             if ($this->_schema) {
-                $this->_sequence = $this->_db->quoteIdentifier($this->_schema) . 'Table' . $this->_sequence;
+                $this->_sequence = $this->_db->quoteIdentifier($this->_schema) . '.' . $this->_sequence;
             }
         }
     }
