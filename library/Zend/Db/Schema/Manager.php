@@ -323,7 +323,7 @@ class Zend_Db_Schema_Manager
         $version = $migration['version'];
         $filename = $migration['filename'];
         $classname = $migration['classname'];
-        require_once($this->_dir.'/'.$path.'/'.$filename);
+        //require_once($this->_dir.'/'.$path.'/'.$filename);
         if (!class_exists($classname, false)) {
             throw new Zend_Db_Schema_Exception("Could not find class '$classname' in file '$filename'");
         }
